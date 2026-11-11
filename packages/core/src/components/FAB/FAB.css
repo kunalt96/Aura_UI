@@ -1,0 +1,146 @@
+@layer aura.components {
+  .aura-fab {
+    --_container-size: var(--aura-comp-fab-size, 56px);
+    --_min-height: var(--aura-comp-fab-size, 56px);
+    --_icon-size: var(--aura-sys-icon-size-default);
+    --_shape: var(--aura-comp-fab-shape, var(--aura-sys-shape-large));
+    --_container-color: var(--aura-comp-fab-container-color, var(--aura-sys-color-primary-container));
+    --_label-color: var(--aura-comp-fab-label-color, var(--aura-sys-color-on-primary-container));
+    --_padding-inline-start: 0;
+    --_padding-inline-end: 0;
+    --_gap: var(--aura-sys-space-3);
+    --_typescale: var(--aura-sys-typescale-label-large);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    inline-size: var(--_container-size);
+    block-size: var(--_min-height);
+    min-inline-size: var(--_container-size);
+    min-block-size: var(--_min-height);
+    padding-inline: var(--_padding-inline-start) var(--_padding-inline-end);
+    gap: var(--_gap);
+    border-radius: var(--_shape);
+    border: 0;
+    background-color: var(--_container-color);
+    color: var(--_label-color);
+    font: var(--_typescale);
+    text-decoration: none;
+    vertical-align: middle;
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Color variants */
+  .aura-fab[data-color="primary"] {
+    --_container-color: var(--aura-sys-color-primary-container);
+    --_label-color: var(--aura-sys-color-on-primary-container);
+  }
+
+  .aura-fab[data-color="surface"] {
+    --_container-color: var(--aura-sys-color-surface-container-high);
+    --_label-color: var(--aura-sys-color-primary);
+  }
+
+  .aura-fab[data-color="secondary"] {
+    --_container-color: var(--aura-sys-color-secondary-container);
+    --_label-color: var(--aura-sys-color-on-secondary-container);
+  }
+
+  .aura-fab[data-color="tertiary"] {
+    --_container-color: var(--aura-sys-color-tertiary-container);
+    --_label-color: var(--aura-sys-color-on-tertiary-container);
+  }
+
+  /* Sizes */
+  .aura-fab[data-size="small"] {
+    --_container-size: var(--aura-comp-fab-small, 40px);
+    --_min-height: var(--aura-comp-fab-small, 40px);
+    --_shape: var(--aura-sys-shape-medium);
+    --_icon-size: var(--aura-sys-icon-size-default);
+  }
+
+  .aura-fab[data-size="regular"] {
+    --_container-size: var(--aura-comp-fab-size, 56px);
+    --_min-height: var(--aura-comp-fab-size, 56px);
+    --_shape: var(--aura-sys-shape-large);
+    --_icon-size: var(--aura-sys-icon-size-default);
+  }
+
+  .aura-fab[data-size="large"] {
+    --_container-size: var(--aura-comp-fab-large, 96px);
+    --_min-height: var(--aura-comp-fab-large, 96px);
+    --_shape: var(--aura-sys-shape-extra-large);
+    --_icon-size: var(--aura-sys-icon-size-large);
+  }
+
+  /* Extended FAB */
+  .aura-fab[data-extended="true"] {
+    --_container-size: auto;
+    --_padding-inline-start: var(--aura-sys-space-4);
+    --_padding-inline-end: var(--aura-sys-space-5);
+  }
+
+  /* Elevation level update on hover */
+  .aura-fab .aura-elevation {
+    --_elevation-shadow: var(--aura-sys-elevation-level3-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level3-tint);
+  }
+
+  :where(:hover, [data-hovered="true"], [data-hovered]) > .aura-fab-elevation,
+  .aura-fab:hover .aura-elevation {
+    --_elevation-shadow: var(--aura-sys-elevation-level4-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level4-tint);
+  }
+
+  /* Disabled state */
+  .aura-fab:disabled,
+  .aura-fab[aria-disabled="true"],
+  .aura-fab[data-disabled="true"] {
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+
+    --_container-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+    --_label-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+  }
+
+  .aura-fab-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+  }
+
+  .aura-fab-icon > .aura-icon {
+    font-size: inherit;
+    inline-size: inherit;
+    block-size: inherit;
+  }
+
+  .aura-fab-label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Optional smooth collapse of extended label */
+  .aura-fab[data-extended="false"] .aura-fab-label {
+    display: none;
+  }
+}

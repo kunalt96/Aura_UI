@@ -1,0 +1,211 @@
+@layer aura.components {
+  .aura-icon-button {
+    --_container-size: var(--aura-comp-icon-button-container-size, 40px);
+    --_icon-size: var(--aura-comp-icon-button-icon-size, 24px);
+    --_shape: var(--aura-comp-icon-button-shape, var(--aura-sys-shape-full));
+    --_container-color: transparent;
+    --_icon-color: var(--aura-sys-color-on-surface-variant);
+    --_outline-color: transparent;
+    --_outline-width: 0;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    inline-size: var(--_container-size);
+    block-size: var(--_container-size);
+    min-inline-size: var(--_container-size);
+    min-block-size: var(--_container-size);
+    border-radius: var(--_shape);
+    border: var(--_outline-width) solid var(--_outline-color);
+    background-color: var(--_container-color);
+    color: var(--_icon-color);
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 48px touch target expansion */
+  .aura-icon-button::after {
+    content: "";
+    position: absolute;
+    inset-inline: calc((var(--aura-sys-touch-target) - 100%) / -2);
+    inset-block: calc((var(--aura-sys-touch-target) - 100%) / -2);
+    min-inline-size: var(--aura-sys-touch-target);
+    min-block-size: var(--aura-sys-touch-target);
+    pointer-events: none;
+  }
+
+  /* Variants */
+  .aura-icon-button[data-variant="standard"] {
+    --_container-color: transparent;
+    --_icon-color: var(--aura-sys-color-on-surface-variant);
+  }
+
+  .aura-icon-button[data-variant="standard"][data-selected="true"] {
+    --_container-color: transparent;
+    --_icon-color: var(--aura-sys-color-primary);
+  }
+
+  .aura-icon-button[data-variant="filled"] {
+    --_container-color: var(--aura-sys-color-surface-container-highest);
+    --_icon-color: var(--aura-sys-color-primary);
+  }
+
+  .aura-icon-button[data-variant="filled"][data-selected="true"],
+  .aura-icon-button[data-variant="filled"]:not([data-toggle="true"]) {
+    --_container-color: var(--aura-sys-color-primary);
+    --_icon-color: var(--aura-sys-color-on-primary);
+  }
+
+  .aura-icon-button[data-variant="tonal"] {
+    --_container-color: var(--aura-sys-color-surface-container-highest);
+    --_icon-color: var(--aura-sys-color-on-surface-variant);
+  }
+
+  .aura-icon-button[data-variant="tonal"][data-selected="true"],
+  .aura-icon-button[data-variant="tonal"]:not([data-toggle="true"]) {
+    --_container-color: var(--aura-sys-color-secondary-container);
+    --_icon-color: var(--aura-sys-color-on-secondary-container);
+  }
+
+  .aura-icon-button[data-variant="outlined"] {
+    --_container-color: transparent;
+    --_icon-color: var(--aura-sys-color-on-surface-variant);
+    --_outline-color: var(--aura-sys-color-outline);
+    --_outline-width: 1px;
+  }
+
+  .aura-icon-button[data-variant="outlined"][data-selected="true"] {
+    --_container-color: var(--aura-sys-color-inverse-surface);
+    --_icon-color: var(--aura-sys-color-inverse-on-surface);
+    --_outline-color: transparent;
+    --_outline-width: 0;
+  }
+
+  /* Disabled state */
+  .aura-icon-button:disabled,
+  .aura-icon-button[aria-disabled="true"],
+  .aura-icon-button[data-disabled="true"] {
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+  .aura-icon-button[data-variant="standard"]:disabled,
+  .aura-icon-button[data-variant="standard"][data-disabled="true"] {
+    --_icon-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+  }
+
+  .aura-icon-button[data-variant="filled"]:disabled,
+  .aura-icon-button[data-variant="filled"][data-disabled="true"],
+  .aura-icon-button[data-variant="tonal"]:disabled,
+  .aura-icon-button[data-variant="tonal"][data-disabled="true"] {
+    --_container-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+    --_icon-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+  }
+
+  .aura-icon-button[data-variant="outlined"]:disabled,
+  .aura-icon-button[data-variant="outlined"][data-disabled="true"] {
+    --_icon-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+    --_outline-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+  }
+
+  /* Icon content sizing */
+  .aura-icon-button-content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+  }
+
+  .aura-icon-button-content > .aura-icon {
+    font-size: inherit;
+    inline-size: inherit;
+    block-size: inherit;
+  }
+
+  /* Loading state spinner */
+  .aura-icon-button-spinner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    animation: aura-icon-button-spin var(--aura-sys-motion-duration-extra-long4) linear infinite;
+  }
+
+  .aura-icon-button-spinner-svg {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .aura-icon-button-spinner-circle {
+    stroke: currentColor;
+    stroke-dasharray: 80, 200;
+    stroke-dashoffset: 0;
+    animation: aura-icon-button-spinner-dash var(--aura-sys-motion-duration-extra-long4)
+      var(--aura-sys-motion-easing-standard) infinite;
+  }
+
+  @keyframes aura-icon-button-spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes aura-icon-button-spinner-dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+
+    50% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35;
+    }
+
+    100% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -124;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-icon-button-spinner {
+      animation: none;
+    }
+  }
+}
+
