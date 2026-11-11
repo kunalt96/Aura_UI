@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BRAND_CONFIG } from '@aura/tokens';
+
+<Meta title="Overview/Introduction" />
+
+# {BRAND_CONFIG.name}
+
+Material Design 3 React component library built with strict design tokens, zero-runtime CSS layers, HCT dynamic color theming, and accessibility-first primitives.
+
+## Toolbar Switchers
+
+Use the Storybook toolbar above any page to preview live across:
+
+- **Mode**: Light, Dark, or System (`prefers-color-scheme`)
+- **Contrast**: Standard (`0`), Medium (`0.5`), or High (`1.0`)
+- **Seed**: HCT key color (`@material/material-color-utilities`)
+- **Scheme**: `tonal-spot`, `vibrant`, `expressive`, `neutral`, `monochrome`, `fidelity`
+- **Motion**: Standard, Expressive (`linear()` springs), or Reduced
+- **Direction**: LTR and RTL (logical CSS properties only)
+
+## Milestone M0 Coverage
+
+- **Tokens (`@aura/tokens`)**: Reference, System, and Component custom properties (`tokens.css`, `tokens.ts`, `tokens.json`) plus runtime `generateColorScheme`.
+- **Theming**: `ThemeProvider`, `useTheme`, and SSR `getThemeInitScript()`.
+- **Primitives**: `Surface`, `Elevation`, `StateLayer`, `Ripple`, `FocusRing`, `Icon`, `Text`, `Presence`, `Portal`, and `VisuallyHidden`.

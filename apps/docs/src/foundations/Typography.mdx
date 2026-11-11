@@ -1,0 +1,21 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as TypographyStories from './Typography.stories';
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+Aura UI implements all 15 Material Design 3 typescale roles in `rem` units using **Roboto Flex** (brand & plain) and **Roboto Mono**, plus M3 Expressive emphasized weights (`500`–`700`).
+
+## Tokens Exposed
+
+- Composite `font` shorthand: `--aura-sys-typescale-<role>` and `--aura-sys-typescale-<role>-emphasized`
+- Sub-properties: `-font-family`, `-size`, `-line-height`, `-weight`, `-emphasized-weight`, `-tracking`
+
+## Base Typescale
+
+<Canvas of={TypographyStories.Scale} />
+
+## Emphasized Typescale (M3 Expressive)
+
+<Canvas of={TypographyStories.EmphasizedScale} />

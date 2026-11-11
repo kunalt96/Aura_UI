@@ -1,0 +1,24 @@
+@layer aura.components {
+  .aura-visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .aura-visually-hidden[data-focusable="true"]:focus,
+  .aura-visually-hidden[data-focusable="true"]:focus-within {
+    position: static;
+    inline-size: auto;
+    block-size: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+}

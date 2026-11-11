@@ -1,0 +1,24 @@
+@layer aura.components {
+  .aura-focus-ring {
+    --_focus-ring-width: var(--aura-sys-state-focus-ring-width);
+    --_focus-ring-offset: var(--aura-sys-state-focus-ring-offset);
+    --_focus-ring-color: var(--aura-sys-state-focus-ring-color);
+
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    outline: var(--_focus-ring-width) solid var(--_focus-ring-color);
+    outline-offset: var(--_focus-ring-offset);
+    opacity: 0;
+  }
+
+  .aura-focus-ring[data-inward="true"] {
+    outline-offset: calc(var(--_focus-ring-width) * -1);
+  }
+
+  :where(:focus-visible, [data-focus-visible="true"], [data-focus-visible]) > .aura-focus-ring,
+  .aura-focus-ring[data-visible="true"] {
+    opacity: 1;
+  }
+}

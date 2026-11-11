@@ -1,0 +1,211 @@
+@layer aura.components {
+  .aura-text {
+    --_text-font: var(--aura-sys-typescale-body-medium);
+    --_text-tracking: var(--aura-sys-typescale-body-medium-tracking);
+    --_text-color: inherit;
+
+    margin: 0;
+    color: var(--_text-color);
+    font: var(--_text-font);
+    letter-spacing: var(--_text-tracking);
+  }
+
+  /* Typescale roles */
+  .aura-text[data-role="display-large"] {
+    --_text-font: var(--aura-sys-typescale-display-large);
+    --_text-tracking: var(--aura-sys-typescale-display-large-tracking);
+  }
+
+  .aura-text[data-role="display-large"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-display-large-emphasized);
+  }
+
+  .aura-text[data-role="display-medium"] {
+    --_text-font: var(--aura-sys-typescale-display-medium);
+    --_text-tracking: var(--aura-sys-typescale-display-medium-tracking);
+  }
+
+  .aura-text[data-role="display-medium"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-display-medium-emphasized);
+  }
+
+  .aura-text[data-role="display-small"] {
+    --_text-font: var(--aura-sys-typescale-display-small);
+    --_text-tracking: var(--aura-sys-typescale-display-small-tracking);
+  }
+
+  .aura-text[data-role="display-small"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-display-small-emphasized);
+  }
+
+  .aura-text[data-role="headline-large"] {
+    --_text-font: var(--aura-sys-typescale-headline-large);
+    --_text-tracking: var(--aura-sys-typescale-headline-large-tracking);
+  }
+
+  .aura-text[data-role="headline-large"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-headline-large-emphasized);
+  }
+
+  .aura-text[data-role="headline-medium"] {
+    --_text-font: var(--aura-sys-typescale-headline-medium);
+    --_text-tracking: var(--aura-sys-typescale-headline-medium-tracking);
+  }
+
+  .aura-text[data-role="headline-medium"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-headline-medium-emphasized);
+  }
+
+  .aura-text[data-role="headline-small"] {
+    --_text-font: var(--aura-sys-typescale-headline-small);
+    --_text-tracking: var(--aura-sys-typescale-headline-small-tracking);
+  }
+
+  .aura-text[data-role="headline-small"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-headline-small-emphasized);
+  }
+
+  .aura-text[data-role="title-large"] {
+    --_text-font: var(--aura-sys-typescale-title-large);
+    --_text-tracking: var(--aura-sys-typescale-title-large-tracking);
+  }
+
+  .aura-text[data-role="title-large"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-title-large-emphasized);
+  }
+
+  .aura-text[data-role="title-medium"] {
+    --_text-font: var(--aura-sys-typescale-title-medium);
+    --_text-tracking: var(--aura-sys-typescale-title-medium-tracking);
+  }
+
+  .aura-text[data-role="title-medium"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-title-medium-emphasized);
+  }
+
+  .aura-text[data-role="title-small"] {
+    --_text-font: var(--aura-sys-typescale-title-small);
+    --_text-tracking: var(--aura-sys-typescale-title-small-tracking);
+  }
+
+  .aura-text[data-role="title-small"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-title-small-emphasized);
+  }
+
+  .aura-text[data-role="body-large"] {
+    --_text-font: var(--aura-sys-typescale-body-large);
+    --_text-tracking: var(--aura-sys-typescale-body-large-tracking);
+  }
+
+  .aura-text[data-role="body-large"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-body-large-emphasized);
+  }
+
+  .aura-text[data-role="body-medium"] {
+    --_text-font: var(--aura-sys-typescale-body-medium);
+    --_text-tracking: var(--aura-sys-typescale-body-medium-tracking);
+  }
+
+  .aura-text[data-role="body-medium"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-body-medium-emphasized);
+  }
+
+  .aura-text[data-role="body-small"] {
+    --_text-font: var(--aura-sys-typescale-body-small);
+    --_text-tracking: var(--aura-sys-typescale-body-small-tracking);
+  }
+
+  .aura-text[data-role="body-small"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-body-small-emphasized);
+  }
+
+  .aura-text[data-role="label-large"] {
+    --_text-font: var(--aura-sys-typescale-label-large);
+    --_text-tracking: var(--aura-sys-typescale-label-large-tracking);
+  }
+
+  .aura-text[data-role="label-large"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-label-large-emphasized);
+  }
+
+  .aura-text[data-role="label-medium"] {
+    --_text-font: var(--aura-sys-typescale-label-medium);
+    --_text-tracking: var(--aura-sys-typescale-label-medium-tracking);
+  }
+
+  .aura-text[data-role="label-medium"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-label-medium-emphasized);
+  }
+
+  .aura-text[data-role="label-small"] {
+    --_text-font: var(--aura-sys-typescale-label-small);
+    --_text-tracking: var(--aura-sys-typescale-label-small-tracking);
+  }
+
+  .aura-text[data-role="label-small"][data-emphasized="true"] {
+    --_text-font: var(--aura-sys-typescale-label-small-emphasized);
+  }
+
+  /* Color roles */
+  .aura-text[data-color="on-surface"] {
+    --_text-color: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-text[data-color="on-surface-variant"] {
+    --_text-color: var(--aura-sys-color-on-surface-variant);
+  }
+
+  .aura-text[data-color="primary"] {
+    --_text-color: var(--aura-sys-color-primary);
+  }
+
+  .aura-text[data-color="secondary"] {
+    --_text-color: var(--aura-sys-color-secondary);
+  }
+
+  .aura-text[data-color="tertiary"] {
+    --_text-color: var(--aura-sys-color-tertiary);
+  }
+
+  .aura-text[data-color="error"] {
+    --_text-color: var(--aura-sys-color-error);
+  }
+
+  .aura-text[data-color="success"] {
+    --_text-color: var(--aura-sys-color-success);
+  }
+
+  .aura-text[data-color="warning"] {
+    --_text-color: var(--aura-sys-color-warning);
+  }
+
+  .aura-text[data-color="info"] {
+    --_text-color: var(--aura-sys-color-info);
+  }
+
+  .aura-text[data-color="on-primary"] {
+    --_text-color: var(--aura-sys-color-on-primary);
+  }
+
+  .aura-text[data-color="inverse-on-surface"] {
+    --_text-color: var(--aura-sys-color-inverse-on-surface);
+  }
+
+  .aura-text[data-align="start"] {
+    text-align: start;
+  }
+
+  .aura-text[data-align="center"] {
+    text-align: center;
+  }
+
+  .aura-text[data-align="end"] {
+    text-align: end;
+  }
+
+  .aura-text[data-truncate="true"] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

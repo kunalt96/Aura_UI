@@ -1,0 +1,10 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ShapeStories from './Shape.stories';
+
+<Meta of={ShapeStories} />
+
+# Shape
+
+Material Design 3 corner radius scale from `none` (`0`) through `extra-extra-large` (`48px`) and `full` (`9999px`).
+
+<Canvas of={ShapeStories.CornerScale} />

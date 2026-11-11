@@ -1,0 +1,16 @@
+@layer aura.base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :where(body) {
+    margin: 0;
+    background-color: var(--aura-sys-color-surface);
+    color: var(--aura-sys-color-on-surface);
+    font: var(--aura-sys-typescale-body-large);
+    letter-spacing: var(--aura-sys-typescale-body-large-tracking);
+    -webkit-font-smoothing: antialiased;
+  }
+}

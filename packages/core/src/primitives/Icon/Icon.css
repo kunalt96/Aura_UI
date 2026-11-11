@@ -1,0 +1,67 @@
+@layer aura.components {
+  .aura-icon {
+    --_icon-size: var(--aura-sys-icon-size-default);
+    --_icon-fill: var(--aura-sys-icon-symbols-fill);
+    --_icon-weight: var(--aura-sys-icon-symbols-weight);
+    --_icon-grade: var(--aura-sys-icon-symbols-grade);
+    --_icon-opsz: var(--aura-sys-icon-symbols-opsz);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+    line-height: 1;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    direction: ltr;
+    user-select: none;
+    flex-shrink: 0;
+    color: inherit;
+    font-feature-settings: "liga";
+    font-variation-settings:
+      "FILL" var(--_icon-fill),
+      "wght" var(--_icon-weight),
+      "GRAD" var(--_icon-grade),
+      "opsz" var(--_icon-opsz);
+  }
+
+  .aura-icon[data-variant="rounded"] {
+    font-family: "Material Symbols Rounded", sans-serif;
+  }
+
+  .aura-icon[data-variant="outlined"] {
+    font-family: "Material Symbols Outlined", sans-serif;
+  }
+
+  .aura-icon[data-size="dense"] {
+    --_icon-size: var(--aura-sys-icon-size-dense);
+  }
+
+  .aura-icon[data-size="default"] {
+    --_icon-size: var(--aura-sys-icon-size-default);
+  }
+
+  .aura-icon[data-size="large"] {
+    --_icon-size: var(--aura-sys-icon-size-large);
+  }
+
+  .aura-icon[data-size="xlarge"] {
+    --_icon-size: var(--aura-sys-icon-size-xlarge);
+  }
+
+  .aura-icon[data-size="xxlarge"] {
+    --_icon-size: var(--aura-sys-icon-size-xxlarge);
+  }
+
+  .aura-icon > svg {
+    inline-size: 1em;
+    block-size: 1em;
+    fill: currentColor;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@aura/tokens",
+  "version": "0.1.0",
+  "private": false,
+  "license": "UNLICENSED",
+  "description": "Design tokens and Material Design 3 HCT scheme generator for Aura UI.",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "build": "tsx scripts/build-tokens.ts && tsdown",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src scripts"
+  },
+  "dependencies": {
+    "@material/material-color-utilities": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsdown": "^0.23.7",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}

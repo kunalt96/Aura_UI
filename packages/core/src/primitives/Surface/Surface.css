@@ -1,0 +1,221 @@
+@layer aura.components {
+  .aura-surface {
+    --_surface-bg: var(--aura-sys-color-surface);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+    --_surface-shape: var(--aura-sys-shape-none);
+    --_surface-shadow: var(--aura-sys-elevation-level0-shadow);
+    --_surface-tint: var(--aura-sys-elevation-level0-tint);
+
+    position: relative;
+    color: var(--_surface-fg);
+    background-color: var(--_surface-bg);
+    background-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-surface-tint) var(--_surface-tint),
+      var(--_surface-bg)
+    );
+    border-radius: var(--_surface-shape);
+    box-shadow: var(--_surface-shadow);
+  }
+
+  .aura-surface[data-outlined="true"] {
+    border: 1px solid var(--aura-sys-color-outline-variant);
+  }
+
+  .aura-surface[data-tonal="false"] {
+    background-color: var(--_surface-bg);
+  }
+
+  /* Color role pairs (DESIGN.md §3.3: always pair X with on-X) */
+  .aura-surface[data-color="surface"] {
+    --_surface-bg: var(--aura-sys-color-surface);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-surface[data-color="surface-dim"] {
+    --_surface-bg: var(--aura-sys-color-surface-dim);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-surface[data-color="surface-bright"] {
+    --_surface-bg: var(--aura-sys-color-surface-bright);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-surface[data-color="surface-container-lowest"] {
+    --_surface-bg: var(--aura-sys-color-surface-container-lowest);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-surface[data-color="surface-container-low"] {
+    --_surface-bg: var(--aura-sys-color-surface-container-low);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-surface[data-color="surface-container"] {
+    --_surface-bg: var(--aura-sys-color-surface-container);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-surface[data-color="surface-container-high"] {
+    --_surface-bg: var(--aura-sys-color-surface-container-high);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-surface[data-color="surface-container-highest"] {
+    --_surface-bg: var(--aura-sys-color-surface-container-highest);
+    --_surface-fg: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-surface[data-color="surface-variant"] {
+    --_surface-bg: var(--aura-sys-color-surface-variant);
+    --_surface-fg: var(--aura-sys-color-on-surface-variant);
+  }
+
+  .aura-surface[data-color="primary"] {
+    --_surface-bg: var(--aura-sys-color-primary);
+    --_surface-fg: var(--aura-sys-color-on-primary);
+  }
+
+  .aura-surface[data-color="primary-container"] {
+    --_surface-bg: var(--aura-sys-color-primary-container);
+    --_surface-fg: var(--aura-sys-color-on-primary-container);
+  }
+
+  .aura-surface[data-color="secondary"] {
+    --_surface-bg: var(--aura-sys-color-secondary);
+    --_surface-fg: var(--aura-sys-color-on-secondary);
+  }
+
+  .aura-surface[data-color="secondary-container"] {
+    --_surface-bg: var(--aura-sys-color-secondary-container);
+    --_surface-fg: var(--aura-sys-color-on-secondary-container);
+  }
+
+  .aura-surface[data-color="tertiary"] {
+    --_surface-bg: var(--aura-sys-color-tertiary);
+    --_surface-fg: var(--aura-sys-color-on-tertiary);
+  }
+
+  .aura-surface[data-color="tertiary-container"] {
+    --_surface-bg: var(--aura-sys-color-tertiary-container);
+    --_surface-fg: var(--aura-sys-color-on-tertiary-container);
+  }
+
+  .aura-surface[data-color="error"] {
+    --_surface-bg: var(--aura-sys-color-error);
+    --_surface-fg: var(--aura-sys-color-on-error);
+  }
+
+  .aura-surface[data-color="error-container"] {
+    --_surface-bg: var(--aura-sys-color-error-container);
+    --_surface-fg: var(--aura-sys-color-on-error-container);
+  }
+
+  .aura-surface[data-color="success"] {
+    --_surface-bg: var(--aura-sys-color-success);
+    --_surface-fg: var(--aura-sys-color-on-success);
+  }
+
+  .aura-surface[data-color="success-container"] {
+    --_surface-bg: var(--aura-sys-color-success-container);
+    --_surface-fg: var(--aura-sys-color-on-success-container);
+  }
+
+  .aura-surface[data-color="warning"] {
+    --_surface-bg: var(--aura-sys-color-warning);
+    --_surface-fg: var(--aura-sys-color-on-warning);
+  }
+
+  .aura-surface[data-color="warning-container"] {
+    --_surface-bg: var(--aura-sys-color-warning-container);
+    --_surface-fg: var(--aura-sys-color-on-warning-container);
+  }
+
+  .aura-surface[data-color="info"] {
+    --_surface-bg: var(--aura-sys-color-info);
+    --_surface-fg: var(--aura-sys-color-on-info);
+  }
+
+  .aura-surface[data-color="info-container"] {
+    --_surface-bg: var(--aura-sys-color-info-container);
+    --_surface-fg: var(--aura-sys-color-on-info-container);
+  }
+
+  .aura-surface[data-color="inverse-surface"] {
+    --_surface-bg: var(--aura-sys-color-inverse-surface);
+    --_surface-fg: var(--aura-sys-color-inverse-on-surface);
+  }
+
+  /* Shapes */
+  .aura-surface[data-shape="none"] {
+    --_surface-shape: var(--aura-sys-shape-none);
+  }
+
+  .aura-surface[data-shape="extra-small"] {
+    --_surface-shape: var(--aura-sys-shape-extra-small);
+  }
+
+  .aura-surface[data-shape="small"] {
+    --_surface-shape: var(--aura-sys-shape-small);
+  }
+
+  .aura-surface[data-shape="medium"] {
+    --_surface-shape: var(--aura-sys-shape-medium);
+  }
+
+  .aura-surface[data-shape="large"] {
+    --_surface-shape: var(--aura-sys-shape-large);
+  }
+
+  .aura-surface[data-shape="large-increased"] {
+    --_surface-shape: var(--aura-sys-shape-large-increased);
+  }
+
+  .aura-surface[data-shape="extra-large"] {
+    --_surface-shape: var(--aura-sys-shape-extra-large);
+  }
+
+  .aura-surface[data-shape="extra-large-increased"] {
+    --_surface-shape: var(--aura-sys-shape-extra-large-increased);
+  }
+
+  .aura-surface[data-shape="extra-extra-large"] {
+    --_surface-shape: var(--aura-sys-shape-extra-extra-large);
+  }
+
+  .aura-surface[data-shape="full"] {
+    --_surface-shape: var(--aura-sys-shape-full);
+  }
+
+  /* Elevation levels */
+  .aura-surface[data-elevation="0"] {
+    --_surface-shadow: var(--aura-sys-elevation-level0-shadow);
+    --_surface-tint: var(--aura-sys-elevation-level0-tint);
+  }
+
+  .aura-surface[data-elevation="1"] {
+    --_surface-shadow: var(--aura-sys-elevation-level1-shadow);
+    --_surface-tint: var(--aura-sys-elevation-level1-tint);
+  }
+
+  .aura-surface[data-elevation="2"] {
+    --_surface-shadow: var(--aura-sys-elevation-level2-shadow);
+    --_surface-tint: var(--aura-sys-elevation-level2-tint);
+  }
+
+  .aura-surface[data-elevation="3"] {
+    --_surface-shadow: var(--aura-sys-elevation-level3-shadow);
+    --_surface-tint: var(--aura-sys-elevation-level3-tint);
+  }
+
+  .aura-surface[data-elevation="4"] {
+    --_surface-shadow: var(--aura-sys-elevation-level4-shadow);
+    --_surface-tint: var(--aura-sys-elevation-level4-tint);
+  }
+
+  .aura-surface[data-elevation="5"] {
+    --_surface-shadow: var(--aura-sys-elevation-level5-shadow);
+    --_surface-tint: var(--aura-sys-elevation-level5-tint);
+  }
+}

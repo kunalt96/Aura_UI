@@ -1,0 +1,47 @@
+@layer aura.components {
+  .aura-state-layer {
+    --_state-layer-color: currentColor;
+    --_state-layer-opacity: 0;
+
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--_state-layer-color);
+    opacity: var(--_state-layer-opacity);
+    pointer-events: none;
+    transition: opacity var(--aura-sys-motion-duration-short2) var(--aura-sys-motion-easing-standard);
+  }
+
+  /* Parent-driven interaction states */
+  :where(:hover, [data-hovered="true"], [data-hovered]) > .aura-state-layer,
+  .aura-state-layer[data-hovered="true"] {
+    --_state-layer-opacity: var(--aura-sys-state-hover-opacity);
+  }
+
+  :where(:focus-visible, [data-focus-visible="true"], [data-focus-visible]) > .aura-state-layer,
+  .aura-state-layer[data-focused="true"] {
+    --_state-layer-opacity: var(--aura-sys-state-focus-opacity);
+  }
+
+  :where(:active, [data-pressed="true"], [data-pressed]) > .aura-state-layer,
+  .aura-state-layer[data-pressed="true"] {
+    --_state-layer-opacity: var(--aura-sys-state-pressed-opacity);
+  }
+
+  :where([data-dragged="true"], [data-dragged]) > .aura-state-layer,
+  .aura-state-layer[data-dragged="true"] {
+    --_state-layer-opacity: var(--aura-sys-state-dragged-opacity);
+  }
+
+  :where(:disabled, [aria-disabled="true"], [data-disabled="true"], [data-disabled])
+    > .aura-state-layer,
+  .aura-state-layer[data-disabled="true"] {
+    --_state-layer-opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-state-layer {
+      transition-duration: var(--aura-sys-motion-duration-short1);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "@aura/core JS (M0 primitives + theme + hooks)",
+    "path": "packages/core/dist/**/*.mjs",
+    "limit": "12 kB",
+    "gzip": true
+  },
+  {
+    "name": "@aura/core CSS (tokens + layers + primitives)",
+    "path": "packages/core/dist/styles.css",
+    "limit": "12 kB",
+    "gzip": true
+  },
+  {
+    "name": "@aura/tokens CSS (tokens only)",
+    "path": "packages/tokens/dist/tokens.css",
+    "limit": "8 kB",
+    "gzip": true
+  }
+]

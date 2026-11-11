@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.turbo/
+storybook-static/
+*.tsbuildinfo
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+packages/tokens/src/generated/
+
+# Ignored from remote repository
+AGENTS.md
+Agents.md
+/docs/
+

@@ -1,0 +1,33 @@
+@layer aura.components {
+  .aura-ripple {
+    --_ripple-color: currentColor;
+
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
+    contain: layout style;
+  }
+
+  .aura-ripple[data-unbounded="true"] {
+    overflow: visible;
+  }
+
+  .aura-ripple-wave {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    border-radius: var(--aura-sys-shape-full);
+    background-color: var(--_ripple-color);
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-ripple {
+      display: none;
+    }
+  }
+}

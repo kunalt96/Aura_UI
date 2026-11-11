@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint (ESLint + jsx-a11y + Stylelint)
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build packages
+        run: pnpm build
+
+      - name: Check bundle size budgets
+        run: pnpm size
+
+      - name: Build Storybook
+        run: pnpm build-storybook
+
+      - name: Verify closed-source tarballs (dist-only, no source maps)
+        run: |
+          pnpm --filter @aura/tokens exec npm pack --dry-run
+          pnpm --filter @aura/core exec npm pack --dry-run
+          ! find packages/*/dist -name '*.map' | grep -q .

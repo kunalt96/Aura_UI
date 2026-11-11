@@ -1,0 +1,10 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as MotionStories from './Motion.stories';
+
+<Meta of={MotionStories} />
+
+# Motion
+
+Aura UI animates strictly `transform`, `opacity`, and `clip-path`. Under `prefers-reduced-motion: reduce` (or the **Reduced** toolbar mode), `short*` durations collapse to `0ms`, longer durations clamp to `50ms`, and springs fall back to `standard` easing.
+
+<Canvas of={MotionStories.EasingAndDurations} />

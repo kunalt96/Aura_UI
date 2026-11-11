@@ -1,0 +1,6 @@
+@layer aura.base {
+  .aura-theme {
+    color: var(--aura-sys-color-on-surface);
+    font-family: var(--aura-sys-typescale-body-medium-font-family);
+  }
+}

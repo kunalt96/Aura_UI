@@ -1,0 +1,63 @@
+.aura-docs-stage {
+  background-color: var(--aura-sys-color-surface);
+  color: var(--aura-sys-color-on-surface);
+  padding: var(--aura-sys-space-6);
+  min-block-size: 100%;
+}
+
+.aura-docs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--aura-sys-space-6);
+}
+
+.aura-docs-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--aura-sys-space-4);
+}
+
+.aura-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--aura-sys-space-4);
+}
+
+.aura-docs-swatch {
+  padding: var(--aura-sys-space-4);
+  border-radius: var(--aura-sys-shape-medium);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--aura-sys-space-2);
+  min-block-size: 96px;
+}
+
+.aura-docs-interactive-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--aura-sys-space-2);
+  min-block-size: var(--aura-sys-touch-target);
+  min-inline-size: var(--aura-sys-touch-target);
+  padding-inline: var(--aura-sys-space-6);
+  border: 1px solid var(--aura-sys-color-outline-variant);
+  border-radius: var(--aura-sys-shape-full);
+  background-color: var(--aura-sys-color-surface-container-low);
+  color: var(--aura-sys-color-on-surface);
+  font: var(--aura-sys-typescale-label-large);
+  letter-spacing: var(--aura-sys-typescale-label-large-tracking);
+  cursor: pointer;
+}
+
+.aura-docs-interactive-btn:focus-visible {
+  outline: none;
+}
+
+.aura-docs-mono {
+  font-family: var(--aura-ref-typeface-mono);
+  font-size: var(--aura-sys-typescale-body-small-size);
+  line-height: var(--aura-sys-typescale-body-small-line-height);
+}

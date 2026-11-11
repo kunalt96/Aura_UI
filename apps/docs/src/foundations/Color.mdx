@@ -1,0 +1,22 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ColorStories from './Color.stories';
+
+<Meta of={ColorStories} />
+
+# Color System
+
+Colors are generated from a single HCT seed using `@material/material-color-utilities` across all **light / dark** modes, **standard / medium / high** contrast curves, and 6 scheme variants (`tonal-spot`, `vibrant`, `expressive`, `neutral`, `monochrome`, `fidelity`).
+
+## Usage Rules
+
+- Always pair every `X` container color with its matching `on-X` foreground token.
+- Components consume `--aura-sys-color-*` or `--aura-comp-*` tokens — never `--aura-ref-palette-*` or raw hex literals.
+- `success`, `warning`, and `info` are harmonized toward the active seed via `Blend.harmonize`.
+
+## System Roles
+
+<Canvas of={ColorStories.SystemRoles} />
+
+## Reference Tonal Palettes (0–100)
+
+<Canvas of={ColorStories.TonalPalettes} />

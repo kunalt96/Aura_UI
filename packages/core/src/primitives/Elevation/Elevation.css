@@ -1,0 +1,84 @@
+@layer aura.components {
+  .aura-elevation {
+    --_elevation-shadow: var(--aura-sys-elevation-level0-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level0-tint);
+
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity var(--aura-sys-motion-duration-short3) var(--aura-sys-motion-easing-standard);
+  }
+
+  .aura-elevation::before,
+  .aura-elevation::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .aura-elevation::before {
+    background-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-surface-tint) var(--_elevation-tint),
+      transparent
+    );
+  }
+
+  .aura-elevation::after {
+    box-shadow: var(--_elevation-shadow);
+    opacity: 1;
+    transition: opacity var(--aura-sys-motion-duration-short3) var(--aura-sys-motion-easing-standard);
+  }
+
+  .aura-elevation[data-shadow="false"]::after {
+    opacity: 0;
+  }
+
+  .aura-elevation[data-tonal="false"]::before {
+    opacity: 0;
+  }
+
+  [data-aura-theme="dark"] .aura-elevation::after {
+    opacity: 0.72;
+  }
+
+  .aura-elevation[data-level="0"] {
+    --_elevation-shadow: var(--aura-sys-elevation-level0-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level0-tint);
+  }
+
+  .aura-elevation[data-level="1"] {
+    --_elevation-shadow: var(--aura-sys-elevation-level1-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level1-tint);
+  }
+
+  .aura-elevation[data-level="2"] {
+    --_elevation-shadow: var(--aura-sys-elevation-level2-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level2-tint);
+  }
+
+  .aura-elevation[data-level="3"] {
+    --_elevation-shadow: var(--aura-sys-elevation-level3-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level3-tint);
+  }
+
+  .aura-elevation[data-level="4"] {
+    --_elevation-shadow: var(--aura-sys-elevation-level4-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level4-tint);
+  }
+
+  .aura-elevation[data-level="5"] {
+    --_elevation-shadow: var(--aura-sys-elevation-level5-shadow);
+    --_elevation-tint: var(--aura-sys-elevation-level5-tint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-elevation,
+    .aura-elevation::after {
+      transition-duration: var(--aura-sys-motion-duration-short1);
+    }
+  }
+}

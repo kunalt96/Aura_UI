@@ -1,0 +1,64 @@
+{
+  "name": "@aura/core",
+  "version": "0.1.0",
+  "private": false,
+  "license": "UNLICENSED",
+  "description": "Material Design 3 React component library primitives and theming.",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./primitives": {
+      "types": "./dist/primitives/index.d.mts",
+      "import": "./dist/primitives/index.mjs",
+      "require": "./dist/primitives/index.cjs"
+    },
+    "./theme": {
+      "types": "./dist/theme/index.d.mts",
+      "import": "./dist/theme/index.mjs",
+      "require": "./dist/theme/index.cjs"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.mts",
+      "import": "./dist/hooks/index.mjs",
+      "require": "./dist/hooks/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "build": "tsdown && node scripts/build-css.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src scripts && stylelint \"src/**/*.css\""
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  },
+  "dependencies": {
+    "@aura/tokens": "workspace:*",
+    "react-aria-components": "^1.22.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tsdown": "^0.23.7",
+    "typescript": "^5.8.3"
+  }
+}

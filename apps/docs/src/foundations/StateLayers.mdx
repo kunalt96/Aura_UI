@@ -1,0 +1,10 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as StateLayerStories from './StateLayers.stories';
+
+<Meta of={StateLayerStories} />
+
+# State Layers & Focus Ring
+
+Material Design 3 communicates interaction states using an `on-X` (`currentColor`) overlay driven by `--aura-sys-state-*-opacity`, paired with a `3px` `secondary` `:focus-visible` ring at a `2px` offset.
+
+<Canvas of={StateLayerStories.Showcase} />
