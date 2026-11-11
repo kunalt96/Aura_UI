@@ -132,3 +132,4 @@ export const SegmentedButton = forwardRef<HTMLButtonElement, SegmentedButtonProp
 );
 
 SegmentedButton.displayName = 'SegmentedButton';
+

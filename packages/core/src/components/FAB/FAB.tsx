@@ -144,3 +144,4 @@ export const FAB = forwardRef(
 ) as unknown as PolymorphicComponent<'button', FABOwnProps>;
 
 FAB.displayName = 'FAB';
+

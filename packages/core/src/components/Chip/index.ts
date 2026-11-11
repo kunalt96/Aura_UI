@@ -4,3 +4,4 @@ export {
   type ChipOwnProps,
   type ChipVariant,
 } from './Chip';
+
