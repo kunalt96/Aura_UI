@@ -1,0 +1,288 @@
+@layer aura.components {
+  .aura-button {
+    --_container-color: var(--aura-comp-button-container-color, var(--aura-sys-color-primary));
+    --_label-color: var(--aura-comp-button-label-color, var(--aura-sys-color-on-primary));
+    --_outline-color: transparent;
+    --_outline-width: 0;
+    --_min-height: var(--aura-comp-button-container-height-md, 40px);
+    --_padding-inline-start: var(--aura-comp-button-horizontal-padding, 24px);
+    --_padding-inline-end: var(--aura-comp-button-horizontal-padding, 24px);
+    --_gap: var(--aura-comp-button-icon-gap, 8px);
+    --_icon-size: var(--aura-comp-button-icon-size, 18px);
+    --_shape: var(--aura-comp-button-container-shape, var(--aura-sys-shape-full));
+    --_typescale: var(--aura-comp-button-label-text, var(--aura-sys-typescale-label-large));
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-block-size: var(--_min-height);
+    padding-inline: var(--_padding-inline-start) var(--_padding-inline-end);
+    gap: var(--_gap);
+    border-radius: var(--_shape);
+    border: var(--_outline-width) solid var(--_outline-color);
+    background-color: var(--_container-color);
+    color: var(--_label-color);
+    font: var(--_typescale);
+    text-decoration: none;
+    vertical-align: middle;
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 48px touch target expansion */
+  .aura-button::after {
+    content: "";
+    position: absolute;
+    inset-block: calc((var(--aura-sys-touch-target) - 100%) / -2);
+    inset-inline: 0;
+    min-block-size: var(--aura-sys-touch-target);
+    pointer-events: none;
+  }
+
+  .aura-button[data-full-width="true"] {
+    display: flex;
+    inline-size: 100%;
+  }
+
+  /* Variants */
+  .aura-button[data-variant="filled"] {
+    --_container-color: var(--aura-comp-button-filled-container-color, var(--aura-sys-color-primary));
+    --_label-color: var(--aura-comp-button-filled-label-color, var(--aura-sys-color-on-primary));
+  }
+
+  .aura-button[data-variant="tonal"] {
+    --_container-color: var(--aura-comp-button-tonal-container-color, var(--aura-sys-color-secondary-container));
+    --_label-color: var(--aura-comp-button-tonal-label-color, var(--aura-sys-color-on-secondary-container));
+  }
+
+  .aura-button[data-variant="elevated"] {
+    --_container-color: var(--aura-comp-button-elevated-container-color, var(--aura-sys-color-surface-container-low));
+    --_label-color: var(--aura-comp-button-elevated-label-color, var(--aura-sys-color-primary));
+  }
+
+  .aura-button[data-variant="outlined"] {
+    --_container-color: transparent;
+    --_label-color: var(--aura-comp-button-outlined-label-color, var(--aura-sys-color-primary));
+    --_outline-color: var(--aura-comp-button-outlined-outline-color, var(--aura-sys-color-outline));
+    --_outline-width: 1px;
+  }
+
+  .aura-button[data-variant="text"] {
+    --_container-color: transparent;
+    --_label-color: var(--aura-comp-button-text-label-color, var(--aura-sys-color-primary));
+    --_padding-inline-start: var(--aura-sys-space-3);
+    --_padding-inline-end: var(--aura-sys-space-3);
+  }
+
+  /* Toggle button selected states */
+  .aura-button[data-variant="filled"][data-selected="true"] {
+    --_container-color: var(--aura-sys-color-primary-container);
+    --_label-color: var(--aura-sys-color-on-primary-container);
+  }
+
+  .aura-button[data-variant="tonal"][data-selected="true"] {
+    --_container-color: var(--aura-sys-color-secondary);
+    --_label-color: var(--aura-sys-color-on-secondary);
+  }
+
+  .aura-button[data-variant="outlined"][data-selected="true"] {
+    --_container-color: var(--aura-sys-color-inverse-surface);
+    --_label-color: var(--aura-sys-color-inverse-on-surface);
+    --_outline-color: transparent;
+  }
+
+  /* Sizes */
+  .aura-button[data-size="xs"] {
+    --_min-height: var(--aura-comp-button-container-height-xs, 32px);
+    --_padding-inline-start: var(--aura-sys-space-3);
+    --_padding-inline-end: var(--aura-sys-space-3);
+    --_gap: var(--aura-sys-space-1);
+    --_icon-size: var(--aura-sys-icon-size-dense);
+    --_typescale: var(--aura-sys-typescale-label-small);
+  }
+
+  .aura-button[data-size="sm"] {
+    --_min-height: var(--aura-comp-button-container-height-sm, 40px);
+    --_padding-inline-start: var(--aura-sys-space-4);
+    --_padding-inline-end: var(--aura-sys-space-4);
+    --_gap: var(--aura-sys-space-2);
+    --_icon-size: var(--aura-comp-button-icon-size, 18px);
+    --_typescale: var(--aura-sys-typescale-label-medium);
+  }
+
+  .aura-button[data-size="md"] {
+    --_min-height: var(--aura-comp-button-container-height-md, 40px);
+    --_padding-inline-start: var(--aura-comp-button-horizontal-padding, 24px);
+    --_padding-inline-end: var(--aura-comp-button-horizontal-padding, 24px);
+    --_gap: var(--aura-comp-button-icon-gap, 8px);
+    --_icon-size: var(--aura-comp-button-icon-size, 18px);
+    --_typescale: var(--aura-comp-button-label-text, var(--aura-sys-typescale-label-large));
+  }
+
+  .aura-button[data-size="lg"] {
+    --_min-height: var(--aura-comp-button-container-height-lg, 56px);
+    --_padding-inline-start: var(--aura-sys-space-6);
+    --_padding-inline-end: var(--aura-sys-space-6);
+    --_gap: var(--aura-sys-space-3);
+    --_icon-size: var(--aura-sys-icon-size-default);
+    --_typescale: var(--aura-sys-typescale-title-medium);
+  }
+
+  .aura-button[data-size="xl"] {
+    --_min-height: var(--aura-comp-button-container-height-xl, 96px);
+    --_padding-inline-start: var(--aura-sys-space-8);
+    --_padding-inline-end: var(--aura-sys-space-8);
+    --_gap: var(--aura-sys-space-4);
+    --_icon-size: var(--aura-sys-icon-size-large);
+    --_typescale: var(--aura-sys-typescale-headline-small);
+  }
+
+  /* Padding adjustments with leading/trailing icon */
+  .aura-button[data-has-leading="true"] {
+    --_padding-inline-start: var(--aura-comp-button-horizontal-padding-with-icon, 16px);
+  }
+
+  .aura-button[data-has-trailing="true"] {
+    --_padding-inline-end: var(--aura-comp-button-horizontal-padding-with-icon, 16px);
+  }
+
+  .aura-button[data-variant="text"][data-has-leading="true"] {
+    --_padding-inline-start: var(--aura-sys-space-3);
+  }
+
+  .aura-button[data-variant="text"][data-has-trailing="true"] {
+    --_padding-inline-end: var(--aura-sys-space-4);
+  }
+
+  /* Disabled state */
+  .aura-button:disabled,
+  .aura-button[aria-disabled="true"],
+  .aura-button[data-disabled="true"] {
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+  .aura-button[data-variant="filled"]:disabled,
+  .aura-button[data-variant="filled"][data-disabled="true"],
+  .aura-button[data-variant="tonal"]:disabled,
+  .aura-button[data-variant="tonal"][data-disabled="true"],
+  .aura-button[data-variant="elevated"]:disabled,
+  .aura-button[data-variant="elevated"][data-disabled="true"] {
+    --_container-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+    --_label-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+  }
+
+  .aura-button[data-variant="outlined"]:disabled,
+  .aura-button[data-variant="outlined"][data-disabled="true"] {
+    --_label-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+    --_outline-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+  }
+
+  .aura-button[data-variant="text"]:disabled,
+  .aura-button[data-variant="text"][data-disabled="true"] {
+    --_label-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+  }
+
+  /* Internal label wrapper */
+  .aura-button-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Icon slots */
+  .aura-button-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+  }
+
+  .aura-button-icon > .aura-icon {
+    font-size: inherit;
+    inline-size: inherit;
+    block-size: inherit;
+  }
+
+  /* Loading spinner */
+  .aura-button-spinner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    animation: aura-button-spin var(--aura-sys-motion-duration-extra-long4) linear infinite;
+  }
+
+  .aura-button-spinner-svg {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .aura-button-spinner-circle {
+    stroke: currentColor;
+    stroke-dasharray: 80, 200;
+    stroke-dashoffset: 0;
+    animation: aura-button-spinner-dash var(--aura-sys-motion-duration-extra-long4)
+      var(--aura-sys-motion-easing-standard) infinite;
+  }
+
+  @keyframes aura-button-spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes aura-button-spinner-dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+
+    50% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35;
+    }
+
+    100% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -124;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-button-spinner {
+      animation: none;
+    }
+  }
+}
