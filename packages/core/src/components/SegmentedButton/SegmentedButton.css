@@ -1,0 +1,197 @@
+@layer aura.components {
+  .aura-segmented-button-group {
+    position: relative;
+    display: inline-flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    vertical-align: middle;
+  }
+
+  .aura-segmented-button-group[data-full-width="true"] {
+    display: flex;
+    inline-size: 100%;
+  }
+
+  .aura-segmented-button-group[data-full-width="true"] > .aura-segmented-button {
+    flex: 1 1 0%;
+  }
+
+  .aura-segmented-button {
+    --_container-color: transparent;
+    --_label-color: var(--aura-sys-color-on-surface);
+    --_icon-color: var(--aura-sys-color-on-surface-variant);
+    --_outline-color: var(--aura-sys-color-outline);
+    --_min-height: var(--aura-comp-segmented-button-container-height, 40px);
+    --_padding-inline: var(--aura-comp-segmented-button-padding-inline, var(--aura-sys-space-4));
+    --_icon-size: var(--aura-comp-segmented-button-icon-size, 18px);
+    --_typescale: var(--aura-sys-typescale-label-large);
+    --_shape: var(--aura-comp-segmented-button-shape, var(--aura-sys-shape-full));
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-block-size: var(--_min-height);
+    padding-inline: var(--_padding-inline);
+    gap: var(--aura-sys-space-2);
+    border: 1px solid var(--_outline-color);
+    border-radius: 0;
+    background-color: var(--_container-color);
+    color: var(--_label-color);
+    font: var(--_typescale);
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 0;
+  }
+
+  /* 48px touch target expansion */
+  .aura-segmented-button::after {
+    content: "";
+    position: absolute;
+    inset-block: calc((var(--aura-sys-touch-target) - 100%) / -2);
+    inset-inline: 0;
+    min-block-size: var(--aura-sys-touch-target);
+    pointer-events: none;
+  }
+
+  /* Connected segments border overlap to prevent double borders */
+  .aura-segmented-button-group > .aura-segmented-button + .aura-segmented-button {
+    margin-inline-start: -1px;
+  }
+
+  /* Corner radius for group segments */
+  .aura-segmented-button-group > .aura-segmented-button:first-child {
+    border-start-start-radius: var(--_shape);
+    border-end-start-radius: var(--_shape);
+  }
+
+  .aura-segmented-button-group > .aura-segmented-button:last-child {
+    border-start-end-radius: var(--_shape);
+    border-end-end-radius: var(--_shape);
+  }
+
+  .aura-segmented-button-group > .aura-segmented-button:only-child,
+  .aura-segmented-button:not(.aura-segmented-button-group *) {
+    border-radius: var(--_shape);
+  }
+
+  /* Dense density */
+  .aura-segmented-button-group[data-density="dense"] > .aura-segmented-button,
+  .aura-segmented-button[data-density="dense"] {
+    --_min-height: var(--aura-comp-segmented-button-dense-container-height, 32px);
+    --_padding-inline: var(--aura-comp-segmented-button-dense-padding-inline, var(--aura-sys-space-3));
+    --_typescale: var(--aura-sys-typescale-label-medium);
+  }
+
+  /* Hover & Selected stacking */
+  .aura-segmented-button:hover:not(:disabled) {
+    z-index: 1;
+  }
+
+  .aura-segmented-button[data-selected="true"] {
+    --_container-color: var(--aura-sys-color-secondary-container);
+    --_label-color: var(--aura-sys-color-on-secondary-container);
+    --_icon-color: var(--aura-sys-color-on-secondary-container);
+
+    z-index: 2;
+  }
+
+  .aura-segmented-button[data-selected="true"]:hover:not(:disabled) {
+    z-index: 2;
+  }
+
+  /* Focus ring */
+  .aura-segmented-button:focus-visible {
+    outline: var(--aura-sys-state-focus-ring-width) solid var(--aura-sys-color-secondary);
+    outline-offset: var(--aura-sys-state-focus-ring-offset);
+    z-index: 3;
+  }
+
+  /* Disabled state */
+  .aura-segmented-button:disabled,
+  .aura-segmented-button[data-disabled="true"] {
+    cursor: default;
+    pointer-events: none;
+
+    --_outline-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+    --_label-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+    --_icon-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+  }
+
+  .aura-segmented-button[data-selected="true"]:disabled,
+  .aura-segmented-button[data-selected="true"][data-disabled="true"] {
+    --_container-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+  }
+
+  /* Icon and label slots */
+  .aura-segmented-button-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+    color: var(--_icon-color);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .aura-segmented-button-label {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .aura-segmented-button-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+    color: var(--_icon-color);
+    line-height: 1;
+    flex-shrink: 0;
+    animation-name: aura-segmented-check-enter;
+    animation-duration: var(--aura-sys-motion-duration-short3);
+    animation-timing-function: var(--aura-sys-motion-easing-standard);
+  }
+
+  @keyframes aura-segmented-check-enter {
+    from {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-segmented-button-check {
+      animation-duration: 0ms;
+    }
+  }
+}

@@ -1,14 +1,14 @@
 [
   {
-    "name": "@aura/core JS (M0 primitives + theme + hooks)",
+    "name": "@aura/core JS (primitives + theme + actions)",
     "path": "packages/core/dist/**/*.mjs",
-    "limit": "12 kB",
+    "limit": "20 kB",
     "gzip": true
   },
   {
-    "name": "@aura/core CSS (tokens + layers + primitives)",
+    "name": "@aura/core CSS (tokens + layers + components)",
     "path": "packages/core/dist/styles.css",
-    "limit": "12 kB",
+    "limit": "20 kB",
     "gzip": true
   },
   {

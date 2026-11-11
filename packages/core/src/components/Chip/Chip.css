@@ -1,0 +1,239 @@
+@layer aura.components {
+  .aura-chip {
+    --_container-color: transparent;
+    --_label-color: var(--aura-sys-color-on-surface);
+    --_icon-color: var(--aura-sys-color-on-surface-variant);
+    --_outline-color: var(--aura-sys-color-outline-variant);
+    --_outline-width: 1px;
+    --_min-height: var(--aura-comp-chip-height, 32px);
+    --_padding-inline-start: var(--aura-comp-chip-padding-inline, var(--aura-sys-space-4));
+    --_padding-inline-end: var(--aura-comp-chip-padding-inline, var(--aura-sys-space-4));
+    --_gap: var(--aura-sys-space-2);
+    --_icon-size: var(--aura-comp-chip-icon-size, 18px);
+    --_avatar-size: var(--aura-comp-chip-avatar-size, 24px);
+    --_shape: var(--aura-comp-chip-shape, var(--aura-sys-shape-small));
+    --_typescale: var(--aura-sys-typescale-label-large);
+    --_elevation: none;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-block-size: var(--_min-height);
+    padding-inline: var(--_padding-inline-start) var(--_padding-inline-end);
+    gap: var(--_gap);
+    border-radius: var(--_shape);
+    border: var(--_outline-width) solid var(--_outline-color);
+    background-color: var(--_container-color);
+    color: var(--_label-color);
+    font: var(--_typescale);
+    box-shadow: var(--_elevation);
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+  }
+
+  /* 48px touch target expander */
+  .aura-chip::after {
+    content: "";
+    position: absolute;
+    inset-block: calc((var(--aura-sys-touch-target) - 100%) / -2);
+    inset-inline: 0;
+    min-block-size: var(--aura-sys-touch-target);
+    pointer-events: none;
+  }
+
+  /* Padding adjustments with leading icon / avatar / trailing remove */
+  .aura-chip[data-has-leading="true"] {
+    --_padding-inline-start: var(--aura-comp-chip-padding-inline-with-icon, var(--aura-sys-space-3));
+  }
+
+  .aura-chip[data-has-avatar="true"] {
+    --_padding-inline-start: var(--aura-sys-space-1);
+  }
+
+  .aura-chip[data-has-trailing="true"] {
+    --_padding-inline-end: var(--aura-comp-chip-padding-inline-with-icon, var(--aura-sys-space-3));
+  }
+
+  .aura-chip[data-has-remove="true"] {
+    --_padding-inline-end: var(--aura-sys-space-2);
+  }
+
+  /* Elevated styling */
+  .aura-chip[data-elevated="true"] {
+    --_container-color: var(--aura-sys-color-surface-container-low);
+    --_outline-width: 0;
+    --_outline-color: transparent;
+    --_elevation: var(--aura-sys-elevation-level1);
+  }
+
+  .aura-chip[data-elevated="true"]:hover:not(:disabled) {
+    --_elevation: var(--aura-sys-elevation-level2);
+  }
+
+  /* Assist Chip specific colors */
+  .aura-chip[data-variant="assist"] {
+    --_icon-color: var(--aura-sys-color-primary);
+  }
+
+  /* Filter Chip specific colors */
+  .aura-chip[data-variant="filter"] {
+    --_label-color: var(--aura-sys-color-on-surface-variant);
+  }
+
+  /* Selected state (Filter and Input) */
+  .aura-chip[data-selected="true"] {
+    --_container-color: var(--aura-sys-color-secondary-container);
+    --_label-color: var(--aura-sys-color-on-secondary-container);
+    --_icon-color: var(--aura-sys-color-on-secondary-container);
+    --_outline-width: 0;
+    --_outline-color: transparent;
+  }
+
+  .aura-chip[data-variant="filter"][data-selected="true"][data-elevated="true"] {
+    --_container-color: var(--aura-sys-color-secondary-container);
+    --_elevation: var(--aura-sys-elevation-level1);
+  }
+
+  /* Focus ring */
+  .aura-chip:focus-visible {
+    outline: var(--aura-sys-state-focus-ring-width) solid var(--aura-sys-color-secondary);
+    outline-offset: var(--aura-sys-state-focus-ring-offset);
+  }
+
+  /* Disabled state */
+  .aura-chip:disabled,
+  .aura-chip[data-disabled="true"] {
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+
+    --_outline-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+    --_label-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+    --_icon-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-content-opacity) * 100%),
+      transparent
+    );
+  }
+
+  .aura-chip[data-elevated="true"]:disabled,
+  .aura-chip[data-selected="true"]:disabled {
+    --_container-color: color-mix(
+      in srgb,
+      var(--aura-sys-color-on-surface) calc(var(--aura-sys-state-disabled-container-opacity) * 100%),
+      transparent
+    );
+  }
+
+  /* Slots */
+  .aura-chip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+    color: var(--_icon-color);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .aura-chip-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_avatar-size);
+    block-size: var(--_avatar-size);
+    border-radius: var(--aura-sys-shape-full);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .aura-chip-avatar img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .aura-chip-label {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .aura-chip-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+    color: var(--_icon-color);
+    line-height: 1;
+    flex-shrink: 0;
+    animation-name: aura-chip-check-enter;
+    animation-duration: var(--aura-sys-motion-duration-short3);
+    animation-timing-function: var(--aura-sys-motion-easing-standard);
+  }
+
+  @keyframes aura-chip-check-enter {
+    from {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-chip-check {
+      animation-duration: 0ms;
+    }
+  }
+
+  /* Remove / Dismiss button on Input Chip */
+  .aura-chip-remove {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_icon-size);
+    block-size: var(--_icon-size);
+    font-size: var(--_icon-size);
+    color: var(--_icon-color);
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border-radius: var(--aura-sys-shape-full);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .aura-chip-remove:hover {
+    color: var(--aura-sys-color-on-surface);
+  }
+
+  .aura-chip-remove:focus-visible {
+    outline: var(--aura-sys-state-focus-ring-width) solid var(--aura-sys-color-secondary);
+    outline-offset: var(--aura-sys-state-focus-ring-offset);
+  }
+}
